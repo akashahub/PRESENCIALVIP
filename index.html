@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yan Simon | VIP Experience</title>
+    
+    <!-- Fontes Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- LUXURY CORE --- */
+        :root {
+            --bg-deep: #030303;
+            --bg-card: rgba(20, 20, 20, 0.6);
+            --gold-main: #C8AA6E;
+            --gold-bright: #F4D079;
+            --gold-gradient: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --text-light: #f0f0f0;
+            --text-dim: #888888;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .serif-italic {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--gold-main);
+            font-size: 1.3rem;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 25px; }
+
+        /* --- BOTÃO DE ELITE --- */
+        .btn-vip {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid var(--gold-main);
+            color: var(--gold-main);
+            padding: 20px 50px;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-vip::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: var(--gold-gradient);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn-vip:hover {
+            color: #000;
+            border-color: transparent;
+            box-shadow: 0 0 30px rgba(200, 170, 110, 0.3);
+        }
+        .btn-vip:hover::before { left: 0; }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            border-bottom: 1px solid rgba(200, 170, 110, 0.1);
+        }
+
+        .hero-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            color: var(--gold-main);
+            opacity: 0.8;
+        }
+
+        .hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+        
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* --- PHILOSOPHY (MYSTERY) --- */
+        .philosophy { padding: 100px 0; text-align: center; }
+        
+        .philosophy-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ccc;
+        }
+
+        .divider {
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, var(--gold-main), transparent);
+            margin: 60px auto;
+        }
+
+        /* --- THE MENU (PRICING) --- */
+        .menu-section {
+            padding: 50px 0 120px;
+            background: linear-gradient(180deg, #030303 0%, #0a0a0a 100%);
+        }
+
+        .menu-title {
+            text-align: center;
+            margin-bottom: 80px;
+            font-size: 2.2rem;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .menu-item:hover { border-bottom-color: rgba(200, 170, 110, 0.3); }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: baseline;
+        }
+
+        .item-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--gold-main);
+        }
+
+        .item-price {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--text-light);
+        }
+
+        .item-desc {
+            width: 100%;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .dots {
+            flex: 1;
+            border-bottom: 1px dotted #333;
+            margin: 0 15px;
+            position: relative;
+            top: -5px;
+        }
+
+        /* --- FOOTER/DISCLAIMER --- */
+        .exclusive-note {
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-main);
+            margin-top: 60px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .item-header { flex-direction: column; gap: 5px; }
+            .dots { display: none; }
+            .item-price { font-size: 1.2rem; color: var(--gold-main); margin-top: 5px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-logo">YAN SIMON EXPERIENCE</div>
+            
+            <h1>A Presença <br><span class="gold-text">Akáshica</span></h1>
+            
+            <p class="serif-italic" style="margin-bottom: 10px;">Privado. Presencial. Irrepetível.</p>
+            
+            <p>
+                A metodologia sai do campo digital e entra na sua realidade física.
+                Uma experiência sensorial desenhada para quem busca a excelência vibracional no conforto do seu império.
+            </p>
+
+            <div style="margin-top: 30px;">
+                <span style="font-size: 2rem; color: var(--gold-main);">🜂</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY (MISTÉRIO) -->
+    <section class="philosophy">
+        <div class="container">
+            <div class="philosophy-text">
+                <p>
+                    Existe um nível de alinhamento que telas não conseguem transmitir.
+                    Onde a <strong>Fascinação</strong> deixa de ser uma técnica e se torna uma atmosfera.
+                    Onde o <strong>Magnetismo</strong> não é falado, é sentido na pele.
+                </p>
+                <br>
+                <p>
+                    Minha metodologia presencial é a fusão do sagrado com o luxo. 
+                    Sem manuais. Sem teorias. Apenas a aplicação direta de códigos de poder, limpeza e êxtase vibracional.
+                    Você não está contratando uma sessão. Você está contratando uma nova frequência.
+                </p>
+            </div>
+            <div class="divider"></div>
+        </div>
+    </section>
+
+    <!-- THE MENU -->
+    <section class="menu-section">
+        <div class="container">
+            <h2 class="menu-title"><span class="gold-text">Menu de Experiências</span></h2>
+
+            <!-- ITEM 1 -->
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Sessão Akáshica Padrão</span>
+                    <span class="dots"></span>
+                    <span class="item-price">R$ 800</span>
+                </div>
+                <div class="item-desc">
+                    O protocolo fundamental. Alinhamento quântico, fascinação aplicada e a introdução sensorial ao magnetismo.
+                </div>
+            </div>
+
+            <!-- ITEM 2 -->
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Experiência Personalizada</span>
+                    <span class="dots"></span>
+                    <span class="item-price">R$ 1.000</span>
+                </div>
+                <div class="item-desc">
+                    Desenhada sob medida para sua intenção. Rituais específicos de poder e uma personalização completa do campo vibracional.
+                </div>
+            </div>
+
+            <!-- ITEM 3 -->
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Imersão Profunda (3h+)</span>
+                    <span class="dots"></span>
+                    <span class="item-price">R$ 1.200</span>
+                </div>
+                <div class="item-desc">
+                    O ápice da metodologia. Uma jornada longa e transformadora de reprogramação e êxtase energético. A metamorfose completa.
+                </div>
+            </div>
+
+            <!-- ITEM 4 -->
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Presença VIP em Eventos</span>
+                    <span class="dots"></span>
+                    <span class="item-price">R$ 500</span>
+                </div>
+                <div class="item-desc">
+                    Adicione a assinatura magnética do Akasha ao seu evento. Demonstração de poder e fascinação (Modalidade social, sem tantra).
+                </div>
+            </div>
+            
+            <p style="text-align: right; font-size: 0.8rem; color: #666; margin-top: 20px;">
+                *Deslocamento incluso para zonas selecionadas.
+            </p>
+
+            <!-- CTA -->
+            <div style="text-align: center; margin-top: 80px;">
+                <p class="serif-italic" style="margin-bottom: 30px;">A agenda é restrita. A experiência é eterna.</p>
+                
+                <!-- LINK DO FORMULÁRIO AQUI -->
+                <a href="https://akashahub.github.io/formulariopresencialvip/" target="_blank" class="btn-vip">
+                    Solicitar Agendamento Exclusivo
+                </a>
+            </div>
+
+            <div class="exclusive-note">
+                Exclusivo • Limitado • Luxo
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; color: #333; font-size: 0.7rem; border-top: 1px solid #111;">
+        YAN SIMON &copy; 2024
+    </footer>
+
+</body>
+</html>
